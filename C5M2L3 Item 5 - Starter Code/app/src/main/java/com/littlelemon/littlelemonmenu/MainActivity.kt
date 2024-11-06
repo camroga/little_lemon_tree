@@ -2,6 +2,7 @@ package com.littlelemon.littlelemonmenu
 
 import android.content.res.Configuration.ORIENTATION_LANDSCAPE
 import android.os.Bundle
+import android.transition.Slide
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
@@ -11,8 +12,10 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.Card
 import androidx.compose.material.DrawerValue
 import androidx.compose.material.Scaffold
+import androidx.compose.material.Slider
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
@@ -45,6 +48,7 @@ class MainActivity : ComponentActivity() {
                 },
                 content = { paddingValues ->
                     MenuContent(paddingValues = paddingValues)
+                    Text("")
                 }
             )
         }
