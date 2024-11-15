@@ -40,7 +40,8 @@ private fun MyNavigation() {
 
 @Composable
 private fun AppScreen() {
-    Scaffold(topBar = {
+    Scaffold(
+        topBar = {
         TopAppBar()
     }) {
         Box(

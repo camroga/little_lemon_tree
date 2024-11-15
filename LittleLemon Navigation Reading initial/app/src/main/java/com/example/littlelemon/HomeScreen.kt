@@ -85,6 +85,7 @@ fun TopAppBar() {
             onClick = { /*TODO*/ },
             modifier = Modifier.align(Alignment.CenterStart)
         ) {
+
             Image(
                 painter = painterResource(id = R.drawable.ic_hamburger_menu),
                 contentDescription = "Menu Icon"

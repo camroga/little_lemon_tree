@@ -1,4 +1,3 @@
-import androidx.annotation.DrawableRes
 import com.example.littlelemon.R
 
 interface Destination {
