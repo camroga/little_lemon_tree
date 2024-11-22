@@ -3,6 +3,10 @@ package com.example.littlelemontheme
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -14,6 +18,10 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
@@ -45,20 +53,29 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 private fun HomeScreen() {
+    var isVisible by rememberSaveable { mutableStateOf(true) }
+
     LittleLemonThemeTheme {
         Column(modifier = Modifier.fillMaxSize()) {
             // A surface container using the 'background' color from the theme
-            Surface(
-                modifier = Modifier
-                    .height(70.dp)
-                    .fillMaxSize(),
-                //MaterialTheme.colorScheme.background
-                color = Yellow,
+
+            AnimatedVisibility(
+                visible = isVisible,
+                exit = fadeOut(animationSpec = tween(2000)),
+                enter = fadeIn(animationSpec = tween(2000))
             ) {
-                Text(
-                    text = "Lemon",
-                    fontSize = 30.sp,
-                )
+                Surface(
+                    modifier = Modifier
+                        .height(70.dp)
+                        .fillMaxSize(),
+                    //MaterialTheme.colorScheme.background
+                    color = Yellow,
+                ) {
+                    Text(
+                        text = "Lemon",
+                        fontSize = 30.sp,
+                    )
+                }
             }
             Surface(
                 modifier = Modifier
@@ -140,7 +157,7 @@ private fun HomeScreen() {
 //                                            textAlign = TextAlign.Center,
                 )
             }
-            Button(onClick = { /*TODO*/ }, Modifier.wrapContentSize()) {
+            Button(onClick = { isVisible = !isVisible }, Modifier.wrapContentSize()) {
                 Text(text = "Order")
             }
         }
