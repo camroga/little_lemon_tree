@@ -55,6 +55,7 @@ class MainActivity : ComponentActivity() {
 private fun HomeScreen() {
     var isVisible by rememberSaveable { mutableStateOf(true) }
 
+
     LittleLemonThemeTheme {
         Column(modifier = Modifier.fillMaxSize()) {
             // A surface container using the 'background' color from the theme
