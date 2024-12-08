@@ -60,8 +60,8 @@ fun MenuDish(navController: NavHostController? = null, dish: Dish) {
                 .padding(8.dp)
         ) {
             Column(
-//                modifier = Modifier
-//                    .fillMaxWidth(0.75f)
+                modifier = Modifier
+                    .fillMaxWidth(0.75f)
             ) {
                 Text(dish.name, style = MaterialTheme.typography.h2)
                 Text(
@@ -79,7 +79,7 @@ fun MenuDish(navController: NavHostController? = null, dish: Dish) {
                 modifier = Modifier
                     .clip(RoundedCornerShape(10.dp))
                     .fillMaxSize(),
-//                contentScale = ContentScale.Crop
+                contentScale = ContentScale.FillWidth
             )
 
         }
