@@ -1,7 +1,9 @@
 package com.example.littlelemon
 
 import android.util.Log
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -9,6 +11,7 @@ import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
@@ -47,7 +50,15 @@ fun MenuDish(navController: NavHostController? = null, dish: Dish) {
         Log.d("AAA", "Click ${dish.id}")
         navController?.navigate(DishDetails.route + "/${dish.id}")
     }) {
-        //TODO: Insert code here
+        Row {
+            Column {
+                Text(dish.name)
+                Text(dish.description)
+                Text("${dish.price}")
+            }
+            Image(painter = painterResource(id = dish.imageResource), contentDescription = "image")
+
+        }
     }
     Divider(
         modifier = Modifier.padding(start = 8.dp, end = 8.dp),
