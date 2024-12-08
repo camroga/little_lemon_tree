@@ -32,13 +32,13 @@ object DishRepository {
             19.99,
             R.drawable.grilledfish
         ),
-        Dish(
-            5,
-            "Pasta",
-            "Penne with fried aubergines, cherry tomatoes, tomato sauce, fresh chilli, garlic, basil & salted ricotta cheese.",
-            8.99,
-            R.drawable.pasta
-        ),
+//        Dish(
+//            5,
+//            "Pasta",
+//            "Penne with fried aubergines, cherry tomatoes, tomato sauce, fresh chilli, garlic, basil & salted ricotta cheese.",
+//            8.99,
+//            R.drawable.pasta
+//        ),
         Dish(
             6,
             "Lasagne",

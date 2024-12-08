@@ -1,6 +1,8 @@
 package com.example.littlelemon
 
+import android.graphics.BitmapFactory
 import android.util.Log
+import androidx.compose.animation.with
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -19,6 +21,9 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import com.bumptech.glide.Glide
+import com.example.littlelemon.ui.theme.LittleLemonColor
+import kotlin.coroutines.coroutineContext
 
 @Composable
 fun LowerPanel(navController: NavHostController, dishes: List<Dish> = listOf()) {
@@ -59,10 +64,7 @@ fun MenuDish(navController: NavHostController? = null, dish: Dish) {
                 .fillMaxWidth()
                 .padding(8.dp)
         ) {
-            Column(
-                modifier = Modifier
-                    .fillMaxWidth(0.75f)
-            ) {
+            Column {
                 Text(dish.name, style = MaterialTheme.typography.h2)
                 Text(
                     dish.description,
@@ -71,21 +73,20 @@ fun MenuDish(navController: NavHostController? = null, dish: Dish) {
                         .fillMaxWidth(0.75f)
                         .padding(top = 5.dp, bottom = 5.dp)
                 )
-                Text("${dish.price}", style = MaterialTheme.typography.body2)
+                Text("$${dish.price}", style = MaterialTheme.typography.body2)
             }
             Image(
                 painter = painterResource(id = dish.imageResource),
                 contentDescription = "image",
                 modifier = Modifier
-                    .clip(RoundedCornerShape(10.dp))
-                    .fillMaxSize(),
+                    .clip(RoundedCornerShape(10.dp)),
                 contentScale = ContentScale.FillWidth
             )
-
         }
     }
     Divider(
         modifier = Modifier.padding(start = 8.dp, end = 8.dp),
         thickness = 1.dp,
+        color = LittleLemonColor.yellow
     )
 }
