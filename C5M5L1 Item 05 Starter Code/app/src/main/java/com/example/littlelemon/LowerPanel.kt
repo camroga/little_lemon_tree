@@ -52,9 +52,9 @@ fun MenuDish(navController: NavHostController? = null, dish: Dish) {
     }) {
         Row {
             Column {
-                Text(dish.name)
-                Text(dish.description)
-                Text("${dish.price}")
+                Text(dish.name, style = MaterialTheme.typography.h2)
+                Text(dish.description, style = MaterialTheme.typography.body1)
+                Text("${dish.price}", style = MaterialTheme.typography.body2)
             }
             Image(painter = painterResource(id = dish.imageResource), contentDescription = "image")
 
